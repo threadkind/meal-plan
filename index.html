@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Meal Plan</title>
+    <title>Instant Pot Meal Planner</title>
     <link rel="shortcut icon" href="images/favicon.png" type="image/png">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2&family=Lato&display=swap" rel="stylesheet">
@@ -11,18 +11,39 @@
   <body>
     <nav>
       <ul>
-        <li id="mon">Meatless Mondays<br><br><span id="mplMon">Choose a recipe</span></li>
-        <li id="tues">Taco/Mexico Tuesday<br><br><span id="mplTues">Choose a recipe</span></li>
-        <li id="weds">American Comfort Wednesday<br><br><span id="mplWeds">Choose a recipe</span></li>
-        <li id="thurs">International Thursday<br><br><span id="mplThurs">Choose a recipe</span></li>
-        <li id="fri">Fish Friday<br><br><span id="mplFri">Choose a recipe</span></li></li>
+        <li id="mon">
+          <span class="menuDay">Meatless Mondays</span>
+          <hr>
+          <span id="mplMon" class="mplDay">Choose a recipe</span>
+        </li>
+        <li id="tues">
+          <span class="menuDay">Taco/Mexico Tuesday</span>
+          <hr>
+          <span id="mplTues" class="mplDay">Choose a recipe</span></li>
+        <li id="weds">
+          <span class="menuDay">American Comfort Wednesday</span>
+          <hr>
+          <span id="mplWeds" class="mplDay">Choose a recipe</span></li>
+        <li id="thurs">
+          <span class="menuDay">International Thursday</span>
+          <hr>
+          <span id="mplThurs" class="mplDay">Choose a recipe</span></li>
+        <li id="fri">
+          <span class="menuDay">Fish Friday</span>
+          <hr>
+          <span id="mplFri" class="mplDay">Choose a recipe</span></li></li>
       </ul>
-
+      <div id="navButtons">
+        <button id="howToUse">How to Use</button>
+        <button id="resetMp">Reset Meal Plan</button>
+        <button id="groceryList">Generate grocery list</button>
+      </div>
     </nav>
+
     <main>
 
+      <p id="intro">Easy instant pot meal planning. Choose a meal from each category to make a weekly meal plan. Freeze any leftovers to eat on the weekend or for easy grab-and-go lunches. Generate a grocery list of the ingredients you will need.</p>
 
-      <p>Easy instant pot meal planning. Choose a meal from each category to make a weekly meal plan. Freeze any leftovers to eat on the weekend or for easy grab-and-go lunches. Generate a grocery list of the ingredients you will need.</p>
       <div id="recipeMenu"></div>
       <div id="recipe"></div>
       <div id="shoppingList"></div>
