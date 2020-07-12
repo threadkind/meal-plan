@@ -11,17 +11,7 @@
 	// }
 
 let tues = {
-	sloppyJoes : {
-		id : `sloppyJoes`,
-		title : 'Sloppy Joes',
-		modFrom : `#`,
-		servings : 'about 4 servings',
-		photo : 'https://lh3.googleusercontent.com/-DpgPSSIn9oI/VvdCQWVpgWI/AAAAAAAAA5c/ncTc1KHC9y0/s640/blogger-image-1139432374.jpg',
-		ingredients : ['2 tbsp olive oil','1 medium onion, chopped','1lb ground beef','3 tbsp brown sugar','1 can condensed tomato soup','1/4 cup ketchup','1 tbsp balsamic vinegar','Salt + pepper to taste'],
-		toServe : ['Hamburger buns'],
-		directions : [`In a large skillet, heat up the olive oil over high heat. Add in the onions and brown.`,`Add in the ground beef and cook until brown. Drain if necessary.`,`Once the meat is cooked, add in the brown sugar and stir to dissolve and mix in.`,`Add in the soup, ketchup, vinegar, salt and pepper. Stir to mix.`,`Reduce the heat to low and simmer for 20 minutes.`, `Serve in hamburger buns.`],
-		tags : ['beef']
-	},
+
 	southwestSoup : {
 		id : `southwestSoup`,
 		title : `Creamy Southwest Chicken Soup`,

@@ -1,18 +1,48 @@
 let page = {
 	nav : document.querySelector('nav'),
 	recipeMenu : document.getElementById('recipeMenu'),
-	recipe : document.getElementById('recipe')
+	recipe : document.getElementById('recipe'),
+	mplMon : document.getElementById('mplMon'),
+	mplTues : document.getElementById('mplTues'),
+	mplWeds : document.getElementById('mplWeds'),
+	mplThurs : document.getElementById('mplThurs'),
+	mplFri : document.getElementById('mplFri')
 }
 
 let handlers = {
 	nav : page.nav.addEventListener('click', navClick),
-	recipeMenu : page.recipeMenu.addEventListener('click', recipeMenuClick)
+	recipeMenu : page.recipeMenu.addEventListener('click', recipeMenuClick),
+	recipe : page.recipe.addEventListener('click', recipeClick)
 }
 
 let s = {
 	day : ``,
+	recipe : ``,
 	rm : ``,
 	r : ``
+}
+
+let mp = {
+	mon : {
+		title : `Choose a Recipe`,
+		id : ``
+	},
+	tues : {
+		title : `Choose a Recipe`,
+		id : ``
+	},
+	weds : {
+		title : `Choose a Recipe`,
+		id : ``
+	},
+	thurs : {
+		title : `Choose a Recipe`,
+		id : ``
+	},
+	fri : {
+		title : `Choose a Recipe`,
+		id : ``
+	},
 }
 
 function navClick(e) {
@@ -40,14 +70,15 @@ function navClick(e) {
 
 function recipeMenuClick(e) {
 	let recipe = e.target.parentElement.id
+	s.recipe = recipe
 	let day = eval(s.day)
 
-	s.r = `<h1>${day[recipe].title}</h1>`
+	s.r = `<h1>${day[recipe].title}</h1><button id="addToPlan">Add to Meal Plan</button>`
 
 	if(day[recipe].modFrom != ``){
 
 		s.r += `
-		<p>Modified from <a href="${day[recipe].modFrom}" target="_blank">here</p>`
+		<p>Modified from <a href="${day[recipe].modFrom}" target="_blank">here</a></p>`
 	}
 
 	s.r += `<p>Makes ${day[recipe].servings}</p>
@@ -91,4 +122,19 @@ function recipeMenuClick(e) {
 
 }
 
+function recipeClick(e) {
+	if(e.target.id == `addToPlan`){
+		mp[s.day].title = eval(s.day)[s.recipe].title
+		mp[s.day].id = s.recipe
+		updateMp()
+		console.log(mp)
+	}
+}
 
+function updateMp() {
+	page.mplMon.innerHTML = mp.mon.title
+	page.mplTues.innerHTML = mp.tues.title
+	page.mplWeds.innerHTML = mp.weds.title
+	page.mplThurs.innerHTML = mp.thurs.title
+	page.mplFri.innerHTML = mp.fri.title
+}

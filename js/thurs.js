@@ -11,5 +11,15 @@
 	// }
 
 let thurs = {
-
+	chickpeaKorma : {
+		id : `chickpeaKorma`,
+		title : `Chickpea Korma`,
+		modFrom : ``,
+		servings : `4 servings`,
+		photo : `https://via.placeholder.com/150`,
+		ingredients : [`chickpeas`],
+		toServe : [],
+		directions : [`Make korma.`],
+		tags : [`chickpea`, `meatless`,`curry`, `indian`]
+	}
 }

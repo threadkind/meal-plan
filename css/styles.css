@@ -26,6 +26,10 @@ nav ul>li:nth-child(odd){
 	background: hotpink;
 }
 
+#mealPlanList {
+	position: ;
+}
+
 .recipeTile {
 	width: 25%;
 	position: relative;
