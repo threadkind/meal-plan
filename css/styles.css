@@ -1,0 +1,45 @@
+/*font-family: 'Baloo Da 2', cursive;*/
+* {
+	text-decoration: none;
+	list-style: none;
+	font-family: 'Lato', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+nav ul {
+	display: flex;
+	justify-content: space-around;
+	background: pink;
+	box-shadow: 2px 2px 2px grey;
+}
+
+nav ul li {
+	font-family: 'Baloo Da 2', cursive;
+	font-size: 125%;
+	width: 20%;
+	text-align: center;
+	padding: 1% 0;
+}
+
+nav ul>li:nth-child(odd){
+	background: hotpink;
+}
+
+.recipeTile {
+	width: 25%;
+	position: relative;
+}
+
+.recipeTile img {
+	width: 100%;
+}
+
+.recipeTile p {
+	position: absolute;
+	top: 45%;
+	background: rgba(256,256,256,0.8);
+	width: 100%;
+	padding: 2% 0;
+	text-align: center;
+}
