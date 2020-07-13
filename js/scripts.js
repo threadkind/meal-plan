@@ -107,6 +107,10 @@ let f = {
 			if(e.target.id == 'groceryList'){
 				f.groceryList()
 			}
+
+			if(e.target.id == `randomList`){
+				f.random()
+			}
 		}
 	},
 	howToUse : () => {
@@ -173,6 +177,19 @@ let f = {
 		})
 
 		page.slList.innerHTML = v.slList
+	},
+	random : () => {
+		console.log('randomizing')
+		Object.keys(mp).forEach((key) => {
+
+			let x = Object.keys(eval(key))
+			let rand = x[Math.floor(Math.random() * x.length)]
+
+			console.log(eval(key)[rand])
+			mp[key].title = eval(key)[rand].title
+			mp[key].id = eval(key)[rand].id
+		})
+		f.updateMp()
 	},
 	recipeMenuClick : (e) => {
 		let recipe = e.target.parentElement.id
