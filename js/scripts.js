@@ -125,20 +125,31 @@ let f = {
 		page.recipe.innerHTML = ``
 	},
 	groceryList : () => {
-		console.log('groceryList')
 		f.checkMp()
 
 		if(v.mpConfirm == true){
 			f.resetRecipeBox()
 			f.generatePlan()
+
+			Object.keys(mp).forEach((key) => {
+				if(mp[key].id != ``){
+					f.generateIngs(key)
+				}
+			})
+
+			f.generateShoppingList()
 		}
 	},
 	generatePlan : () => {
-		v.slPlan = `<ul>`
+		v.slPlan = `<h2>Your meal plan for this week</h2><ul>`
 		Object.keys(mp).forEach((key) => {
 			let d = key.split('')
 			d[0] = d[0].toUpperCase()
 			let dUp = d.join('')
+
+			if(dUp == `Weds`){
+				dUp = `Wednes`
+			}
 
 			if(mp[key].id == ``){
 				v.slPlan += `<li>${dUp}day: No recipe selected</li>`
@@ -147,8 +158,21 @@ let f = {
 				let r = eval(key)
 				v.slPlan += `<li>${dUp}day: ${r[mp[key].id].title}`
 			}
+			v.slPlan += `</ul>`
 		})
-	page.slPlan.innerHTML = v.slPlan
+		page.slPlan.innerHTML = v.slPlan
+	},
+	generateShoppingList : () => {
+		console.log('generate shopping list.....')
+		v.slList = `<h2>Your grocery list for this week</h2>
+		<ul>`
+		Object.keys(ingredients).forEach((key) => {
+			Object.keys(ingredients[key]).forEach((k) => {
+				v.slList += `<li>${ingredients[key][k].amt} ${ingredients[key][k].mmt} ${ingredients[key][k].food}</li>`
+			})
+		})
+
+		page.slList.innerHTML = v.slList
 	},
 	recipeMenuClick : (e) => {
 		let recipe = e.target.parentElement.id
@@ -237,11 +261,12 @@ let f = {
 			v.mpConfirm = true;
 		}
 	},
-	generateIngs : (day, recipeId) => {
+	generateIngs : (day) => {
 		d = eval(day)
+		console.log(mp[day].id)
 		ing = {}
 		count = 1
-		d[recipeId].ingredients.forEach((i) => {
+		d[mp[day].id].ingredients.forEach((i) => {
 			let food = i.split(',')[0].split(' ')
 			if(Number.isNaN(Number(food[0])) == false){
 				console.log()
@@ -256,7 +281,7 @@ let f = {
 			}
 
 		})
-		ingredients[recipeId] = ing
+		ingredients[mp[day].id] = ing
 
 	},
 }
@@ -274,4 +299,3 @@ let handlers = {
 
 
 
-f.generateIngs('tues', 'southwestSoup')
