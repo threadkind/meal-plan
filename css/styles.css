@@ -179,14 +179,19 @@ nav button {
 	margin: 1%;
 }
 
-#slList ul {
+/*#slList ul {
 	columns: 2;
   -webkit-columns: 2;
   -moz-columns: 2;
-}
+}*/
 
-#slList ul li {
+/*#slList ul li {
 	list-style: circle;
+}
+*/
+.listCat {
+	border: solid black 1px;
+	padding: 1%;
 }
 
 .hide {

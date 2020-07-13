@@ -141,6 +141,7 @@ let f = {
 			f.resetRecipeBox()
 			f.generatePlan()
 			f.resetIngredients()
+			f.resetIngCategories()
 
 			Object.keys(mp).forEach((key) => {
 				if(mp[key].id != ``){
@@ -180,19 +181,34 @@ let f = {
 		Object.keys(ingredients).forEach((key) => {
 
 			if(ingredients[key].amt > 0){
-				console.log(key)
-				v.slList += `<li>${ingredients[key].amt} ${ingredients[key].mmt} ${ingredients[key].name}</li>`
+				categories[ingredients[key].cat].items.push(`${ingredients[key].amt} ${ingredients[key].mmt} ${ingredients[key].name}`)
 			}
-			// Object.keys(ingredients[key]).forEach((k) => {
-			// 	v.slList += `<li>${ingredients[key][k].amt} ${ingredients[key][k].mmt} ${ingredients[key][k].food}</li>`
-			// })
-		})
 
+		})
+			Object.keys(categories).forEach((key) => {
+				if(categories[key].items.length > 0){
+					v.slList += `<h3>${categories[key].name}</h3>
+					<ul class="listCat">`
+
+					categories[key].items.forEach((i) => {
+						v.slList += `<li>☐ ${i}</li>`
+					})
+
+					v.slList += `</ul>`
+				}
+			})
+
+					console.log(categories)
 		page.slList.innerHTML = v.slList
 	},
 	resetIngredients : () => {
 		Object.keys(ingredients).forEach((key) => {
 			ingredients[key].amt = 0
+		})
+	},
+	resetIngCategories : () => {
+		Object.keys(categories).forEach((key) => {
+			categories[key].items = []
 		})
 	},
 	random : () => {

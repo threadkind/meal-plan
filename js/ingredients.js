@@ -100,13 +100,13 @@ let ingredients = {
 		name : `chickpeas or garbanzo beans`,
 		mmt : `15.5oz-can(s)`,
 		amt : 0,
-		cat : ``
+		cat : `cannedGoods`
 	},
 	kormasimmersauce : {
 		name : `korma simmer sauce`,
 		mmt : `16oz-jar(s)`,
 		amt : 0,
-		cat : ``
+		cat : `saucesOils`
 	},
 	dicedtomatoeswithgreenchilies : {
 		name : `diced tomatoes with green chilies`,
@@ -208,7 +208,7 @@ let ingredients = {
 		name : `hamburger buns`,
 		mmt : `medium`,
 		amt : 0,
-		cat : `breadCereal`
+		cat : `grains`
 	},
 	sesameoil : {
 		name : `sesame oil`,
@@ -238,7 +238,7 @@ let ingredients = {
 		name : `cooked rice`,
 		mmt : `cup(s)`,
 		amt : 0,
-		cat : `pastaRice`
+		cat : `grains`
 	},
 	codfillets : {
 		name : `cod fillets`,
@@ -274,7 +274,7 @@ let ingredients = {
 		name : `jasmine rice`,
 		mmt : `cup(s)`,
 		amt : 0,
-		cat : `pastaRice`
+		cat : `grains`
 	},
 	coconutmilk : {
 		name : `coconut milk`,
@@ -286,15 +286,49 @@ let ingredients = {
 
 console.log(ingredients)
 
-let dairy = ``
-let fruitsVeg = ``
-let frozen = ``
-let cannedGoods = ``
-let pastaRice = ``
-let breadCereal = ``
-let meatSeafood = ``
-let baking = ``
-let saucesOils = ``
-let condiments = ``
-let spices = ``
-let other = ``
+let categories = {
+	fruitsVeg : {
+		name : `Fruits + Vegetables`,
+		items : []
+	},
+	grains : { //pasta, rice, bread, cereal
+		name : `Grains`,
+		items : []
+	},
+	frozen : {
+		name : `Frozen Foods`,
+		items : []
+	},
+	cannedGoods : {
+		name : `Canned Goods`,
+		items : []
+	},
+	dairy : {
+		name : `Dairy + Dairy Subsitutes`,
+		items : []
+	},
+	meatSeafood : {
+		name : `Meat + Seafood`,
+		items : []
+	},
+	baking : {
+		name : `Baking Goods`,
+		items : []
+	},
+	saucesOils : {
+		name : `Sauces + Oils`,
+		items : []
+	},
+	condiments : {
+		name : `Condiments`,
+		items : []
+	},
+	spices : {
+		name : `Spices`,
+		items : []
+	},
+	other : {
+		name : `Other`,
+		items : []
+	},
+}
