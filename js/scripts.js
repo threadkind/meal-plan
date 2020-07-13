@@ -13,15 +13,19 @@ let page = {
 	navButtons : document.getElementById('navButtons'),
 	howToUse : document.getElementById('howToUse'),
 	resetMp :document.getElementById('resetMp'),
-	groceryList :document.getElementById('groceryList')
+	groceryList : document.getElementById('groceryList'),
+	slPlan : document.getElementById('slPlan'),
+	slList : document.getElementById('slList')
 }
 // VARIABLES ---------------------------------------
-// Source
-let s = {
+let v = {
 	day : ``,
 	recipe : ``,
 	rm : ``,
-	r : ``
+	r : ``,
+	mpConfirm : ``,
+	slPlan : ``,
+	slList : ``
 }
 
 // Meal Plan object to hold chosen recipes
@@ -62,29 +66,29 @@ let f = {
 		// If navButton div was not clicked then continue with function and set the current day to be able to access recipes from that day
 		if(nb != true) {
 			if(e.target.classList.contains("menuDay") || e.target.classList.contains("mplDay")){
-			s.day = e.target.parentElement.id
+			v.day = e.target.parentElement.id
 			}
 			else {
-				s.day = e.target.id
+				v.day = e.target.id
 			}
 
-			let day = eval(s.day)
+			let day = eval(v.day)
 
 			// Reset and clear the menu
 			page.recipeMenu.innerHTML = ``
 			page.recipe.innerHTML = ``
-			s.r = ``
-			s.rm = ``
+			v.r = ``
+			v.rm = ``
 
 			// Display all of the recipes available in the object as picture tiles with the title on
 			Object.keys(day).forEach((key) => {
-				s.rm += `
+				v.rm += `
 					<div id="${day[key].id}" class="recipeTile">
 						<img src="${day[key].photo}" alt="${day[key].title}">
 						<p>${day[key].title}</p>
 					</div>
 				`
-			page.recipeMenu.innerHTML = s.rm
+			page.recipeMenu.innerHTML = v.rm
 
 			})
 		}
@@ -116,44 +120,71 @@ let f = {
 		})
 		f.updateMp()
 	},
+	resetRecipeBox : () => {
+		page.recipeMenu.innerHTML = ``
+		page.recipe.innerHTML = ``
+	},
 	groceryList : () => {
 		console.log('groceryList')
+		f.checkMp()
+
+		if(v.mpConfirm == true){
+			f.resetRecipeBox()
+			f.generatePlan()
+		}
+	},
+	generatePlan : () => {
+		v.slPlan = `<ul>`
+		Object.keys(mp).forEach((key) => {
+			let d = key.split('')
+			d[0] = d[0].toUpperCase()
+			let dUp = d.join('')
+
+			if(mp[key].id == ``){
+				v.slPlan += `<li>${dUp}day: No recipe selected</li>`
+			}
+			else{
+				let r = eval(key)
+				v.slPlan += `<li>${dUp}day: ${r[mp[key].id].title}`
+			}
+		})
+	page.slPlan.innerHTML = v.slPlan
 	},
 	recipeMenuClick : (e) => {
 		let recipe = e.target.parentElement.id
-		s.recipe = recipe
-		let day = eval(s.day)
+		v.recipe = recipe
+		let day = eval(v.day)
 
-		s.r = `<h1>${day[recipe].title}</h1><button id="addToPlan">Add to Meal Plan</button>`
+		v.r = `<h1>${day[recipe].title}</h1><button id="addToPlan">Add to Meal Plan</button>`
 
 		if(day[recipe].modFrom != ``){
 
-			s.r += `
+			v.r += `
 			<p>Modified from <a href="${day[recipe].modFrom}" target="_blank">here</a></p>`
 		}
 
-		s.r += `<p>Makes ${day[recipe].servings}</p>
+		v.r += `<p>Makes ${day[recipe].servings}</p>
 			<img src="${day[recipe].photo}" alt="${day[recipe].title}">
 		 	<h2>INGREDIENTS</h2>
 		 	<ul>
 		`
 
 		day[recipe].ingredients.forEach((i) => {
-			s.r += `<li>${i}</li>`
+			v.r += `<li>${i}</li>`
 		})
 
-		s.r += `<br>`
+		v.r += `<br>`
 
 		if(day[recipe].toServe != ``){
-			s.r += `To serve: `
+			v.r += `To serve: `
 
 			day[recipe].toServe.forEach((i) => {
-				s.r += `${i}, `
+				v.r += `${i}, `
 		})
-			s.r += `<br>`
+			v.r += `<br>`
 		}
 
-		s.r += `
+		v.r += `
 			<br>
 			</ul>
 			<h2>DIRECTIONS</h2>
@@ -161,20 +192,20 @@ let f = {
 		`
 
 		day[recipe].directions.forEach((d) => {
-			s.r += `<li>${d}</li>`
+			v.r += `<li>${d}</li>`
 		})
-		s.r += `
+		v.r += `
 			</ul>
 			<br>
 			<p>Enjoy!</p>
 			`
 
-		page.recipe.innerHTML = s.r
+		page.recipe.innerHTML = v.r
 	},
 	recipeClick : (e) => {
 		if(e.target.id == `addToPlan`){
-			mp[s.day].title = eval(s.day)[s.recipe].title
-			mp[s.day].id = s.recipe
+			mp[v.day].title = eval(v.day)[v.recipe].title
+			mp[v.day].id = v.recipe
 			f.updateMp()
 		}
 	},
@@ -190,6 +221,21 @@ let f = {
 	},
 	toggleIntro : () => {
 		page.intro.classList.toggle('hide')
+	},
+	checkMp : () => {
+		let recipeNum = 0
+		Object.keys(mp).forEach((key) => {
+			if(mp[key].id != ``){
+				recipeNum ++
+			}
+		})
+
+		if(recipeNum < 5){
+			v.mpConfirm = confirm(`You only have ${recipeNum} of the 5 weekly recipes. Are you sure you want to continue to generate your grocery list?`)
+		}
+		else {
+			v.mpConfirm = true;
+		}
 	},
 	generateIngs : (day, recipeId) => {
 		d = eval(day)
