@@ -121,8 +121,6 @@ let f = {
 			mp[key].title = 'Choose a Recipe'
 			mp[key].id = ''
 		})
-
-		console.log(page.navUl.children)
 		f.updateMp()
 	},
 	resetRecipeBox : () => {
@@ -142,6 +140,7 @@ let f = {
 			f.hideIntro()
 			f.resetRecipeBox()
 			f.generatePlan()
+			f.resetIngredients()
 
 			Object.keys(mp).forEach((key) => {
 				if(mp[key].id != ``){
@@ -176,17 +175,25 @@ let f = {
 		page.slPlan.innerHTML = v.slPlan
 	},
 	generateShoppingList : () => {
-		console.log('generate shopping list.....')
 		v.slList = `<h2>Your grocery list for this week</h2>
 		<ul>`
 		Object.keys(ingredients).forEach((key) => {
-			Object.keys(ingredients[key]).forEach((k) => {
-				v.slList += `<li>${ingredients[key][k].amt} ${ingredients[key][k].mmt} ${ingredients[key][k].food}</li>`
-			})
+
+			if(ingredients[key].amt > 0){
+				console.log(key)
+				v.slList += `<li>${ingredients[key].amt} ${ingredients[key].mmt} ${ingredients[key].name}</li>`
+			}
+			// Object.keys(ingredients[key]).forEach((k) => {
+			// 	v.slList += `<li>${ingredients[key][k].amt} ${ingredients[key][k].mmt} ${ingredients[key][k].food}</li>`
+			// })
 		})
 
 		page.slList.innerHTML = v.slList
-		console.log(ingredients)
+	},
+	resetIngredients : () => {
+		Object.keys(ingredients).forEach((key) => {
+			ingredients[key].amt = 0
+		})
 	},
 	random : () => {
 		Object.keys(mp).forEach((key) => {
@@ -321,26 +328,18 @@ let f = {
 	},
 	generateIngs : (day) => {
 		d = eval(day)
-		console.log(mp[day].id)
-		ing = {}
-		count = 1
+
 		d[mp[day].id].ingredients.forEach((i) => {
 			let food = i.split(',')[0].split(' ')
-			if(Number.isNaN(Number(food[0])) == false){
-				console.log()
-				ing[count] = {}
-				ing[count].amt = food[0]
+		 	if(Number.isNaN(Number(food[0])) == false){
+				let ingrdt = {}
+				ingrdt.amt = food[0]
 				food.shift()
-				ing[count].mmt = food[0]
 				food.shift()
-				ing[count].food = food.join(' ')
-
-				count ++
+				ingrdt.food = food.join('')
+				ingredients[ingrdt.food].amt += Number(ingrdt.amt)
 			}
-
 		})
-		ingredients[mp[day].id] = ing
-
 	},
 }
 

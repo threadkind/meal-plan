@@ -24,7 +24,7 @@ let ingredients = {
 		amt : 0,
 		cat : `saucesOils`
 	},
-	redWine : {
+	redwine : {
 		name : `red wine`,
 		mmt : `cup(s)`,
 		amt : 0,
