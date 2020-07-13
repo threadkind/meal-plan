@@ -115,7 +115,6 @@ let f = {
 			mp[key].id = ''
 		})
 		f.updateMp()
-
 	},
 	groceryList : () => {
 		console.log('groceryList')
@@ -191,7 +190,29 @@ let f = {
 	},
 	toggleIntro : () => {
 		page.intro.classList.toggle('hide')
-	}
+	},
+	generateIngs : (day, recipeId) => {
+		d = eval(day)
+		ing = {}
+		count = 1
+		d[recipeId].ingredients.forEach((i) => {
+			let food = i.split(',')[0].split(' ')
+			if(Number.isNaN(Number(food[0])) == false){
+				console.log()
+				ing[count] = {}
+				ing[count].amt = food[0]
+				food.shift()
+				ing[count].mmt = food[0]
+				food.shift()
+				ing[count].food = food.join(' ')
+
+				count ++
+			}
+
+		})
+		ingredients[recipeId] = ing
+
+	},
 }
 
 
@@ -204,3 +225,7 @@ let handlers = {
 	recipeMenu : page.recipeMenu.addEventListener('click', f.recipeMenuClick),
 	recipe : page.recipe.addEventListener('click', f.recipeClick)
 }
+
+
+
+f.generateIngs('tues', 'southwestSoup')
