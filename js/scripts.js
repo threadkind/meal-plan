@@ -197,8 +197,6 @@ let f = {
 					v.slList += `</ul>`
 				}
 			})
-
-					console.log(categories)
 		page.slList.innerHTML = v.slList
 	},
 	resetIngredients : () => {
@@ -223,67 +221,69 @@ let f = {
 		f.updateMp()
 	},
 	recipeMenuClick : (e) => {
-		f.resetSl()
-		f.showRecipe()
-		let recipe = e.target.parentElement.id
-		v.recipe = recipe
-		let day = eval(v.day)
+		if(e.target.localName == 'img' || e.target.localName == 'p'){
+			f.resetSl()
+			f.showRecipe()
+			let recipe = e.target.parentElement.id
+			v.recipe = recipe
+			let day = eval(v.day)
 
-		v.r = `<h2>${day[recipe].title}</h2>`
+			v.r = `<h2>${day[recipe].title}</h2>`
 
-		if(day[recipe].modFrom != ``){
+			if(day[recipe].modFrom != ``){
 
-			v.r += `
-			<p id="modFrom">Modified from <a href="${day[recipe].modFrom}" target="_blank">here</a></p>`
-		}
+				v.r += `
+				<p id="modFrom">Modified from <a href="${day[recipe].modFrom}" target="_blank">here</a></p>`
+			}
 
-		v.r += `<div id="serveButton">
-			<p>Makes ${day[recipe].servings}</p>
-			<button id="addToPlan">Add to Meal Plan</button>
-			</div>
-			<figure id="recipePic">
-				<img src="${day[recipe].photo}" alt="${day[recipe].title}">
-			</figure>
-			<div id="recipeIng">
-		 	<h3>INGREDIENTS</h3>
-		 	<ul>
-		`
-
-		day[recipe].ingredients.forEach((i) => {
-			v.r += `<li>${i}</li>`
-		})
-
-		v.r += `<br>`
-
-		if(day[recipe].toServe != ``){
-			v.r += `(Optional) To serve: `
-
-			day[recipe].toServe.forEach((i) => {
-				v.r += `${i}, `
-		})
-			v.r += `<br>`
-		}
-
-		v.r += `
-			<br>
-			</ul>
-			</div>
-			<div id="recipeDirect">
-			<h3>DIRECTIONS</h3>
-			<ul>
-		`
-
-		day[recipe].directions.forEach((d) => {
-			v.r += `<li>${d}</li>`
-		})
-		v.r += `
-			</ul>
-			</div>
-			<br>
-			<p id="enjoy">Enjoy!</p>
+			v.r += `<div id="serveButton">
+				<p>Makes ${day[recipe].servings}</p>
+				<button id="addToPlan">Add to Meal Plan</button>
+				</div>
+				<figure id="recipePic">
+					<img src="${day[recipe].photo}" alt="${day[recipe].title}">
+				</figure>
+				<div id="recipeIng">
+			 	<h3>INGREDIENTS</h3>
+			 	<ul>
 			`
 
-		page.recipe.innerHTML = v.r
+			day[recipe].ingredients.forEach((i) => {
+				v.r += `<li>${i}</li>`
+			})
+
+			v.r += `<br>`
+
+			if(day[recipe].toServe != ``){
+				v.r += `(Optional) To serve: `
+
+				day[recipe].toServe.forEach((i) => {
+					v.r += `${i}, `
+			})
+				v.r += `<br>`
+			}
+
+			v.r += `
+				<br>
+				</ul>
+				</div>
+				<div id="recipeDirect">
+				<h3>DIRECTIONS</h3>
+				<ul>
+			`
+
+			day[recipe].directions.forEach((d) => {
+				v.r += `<li>${d}</li>`
+			})
+			v.r += `
+				</ul>
+				</div>
+				<br>
+				<p id="enjoy">Enjoy!</p>
+				`
+
+			page.recipe.innerHTML = v.r
+		}
 	},
 	recipeClick : (e) => {
 		if(e.target.id == `addToPlan`){
@@ -355,6 +355,9 @@ let f = {
 				ingrdt.food = food.join('')
 				ingredients[ingrdt.food].amt += Number(ingrdt.amt)
 			}
+		})
+		d[mp[day].id].toServe.forEach((extra) => {
+			categories.extras.items.push(extra)
 		})
 	},
 }

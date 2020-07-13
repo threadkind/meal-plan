@@ -76,6 +76,11 @@ nav button {
 	margin: 1% auto;
 }
 
+#intro h2 {
+	width: 100%;
+	text-align: center;
+}
+
 #recipeMenu {
 	width: 80%;
 	margin: 0 auto;
@@ -87,6 +92,7 @@ nav button {
 .recipeTile {
 	width: 30%;
 	position: relative;
+	cursor: pointer;
 }
 
 .recipeTile img {
@@ -192,6 +198,7 @@ nav button {
 .listCat {
 	border: solid black 1px;
 	padding: 1%;
+	margin: 0 0 1.5%;
 }
 
 .hide {
