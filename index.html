@@ -10,51 +10,62 @@
   </head>
   <body>
     <nav>
-      <ul>
-        <li id="mon">
-          <span class="menuDay">Meatless Mondays</span>
-          <hr>
-          <span id="mplMon" class="mplDay">Choose a recipe</span>
-        </li>
-        <li id="tues">
-          <span class="menuDay">Taco/Mexico Tuesday</span>
-          <hr>
-          <span id="mplTues" class="mplDay">Choose a recipe</span></li>
-        <li id="weds">
-          <span class="menuDay">American Comfort Wednesday</span>
-          <hr>
-          <span id="mplWeds" class="mplDay">Choose a recipe</span></li>
-        <li id="thurs">
-          <span class="menuDay">International Thursday</span>
-          <hr>
-          <span id="mplThurs" class="mplDay">Choose a recipe</span></li>
-        <li id="fri">
-          <span class="menuDay">Fish Friday</span>
-          <hr>
-          <span id="mplFri" class="mplDay">Choose a recipe</span></li></li>
-      </ul>
+      <h1>Instant Pot Meal Planner</h1>
+        <ul id="navUl">
+          <li id="mon">
+            <span class="menuDay">Meatless Mondays</span>
+            <hr>
+            <span id="mplMon" class="mplDay">Choose a recipe</span>
+          </li>
+          <li id="tues">
+            <span class="menuDay">Taco/Mexico Tuesday</span>
+            <hr>
+            <span id="mplTues" class="mplDay">Choose a recipe</span></li>
+          <li id="weds">
+            <span class="menuDay">American Comfort Wednesday</span>
+            <hr>
+            <span id="mplWeds" class="mplDay">Choose a recipe</span></li>
+          <li id="thurs">
+            <span class="menuDay">International Thursday</span>
+            <hr>
+            <span id="mplThurs" class="mplDay">Choose a recipe</span></li>
+          <li id="fri">
+            <span class="menuDay">Fish Friday</span>
+            <hr>
+            <span id="mplFri" class="mplDay">Choose a recipe</span></li>
+        </ul>
+
       <div id="navButtons">
-        <button id="howToUse">How to Use</button>
+        <button id="howToUse">How to Use the Meal Planner</button>
         <button id="resetMp">Reset Meal Plan</button>
-        <button id="groceryList">Generate grocery list</button>
-        <button id="randomList">Generate a random grocery list</button>
+        <button id="randomList">Generate a Random Plan</button>
+        <button id="groceryList">Generate Grocery List</button>
       </div>
 
-      </div>
     </nav>
 
     <main>
 
-      <p id="intro">Easy instant pot meal planning. Choose a meal from each category to make a weekly meal plan. Freeze any leftovers to eat on the weekend or for easy grab-and-go lunches. Generate a grocery list of the ingredients you will need.</p>
+      <div id="intro" class="hide">
+        <img src="images/kitchen-counter.jpg" alt="kitchen counter">
+        <p>
+        Easy instant pot meal planning.<br>
+        Meals are grouped into choices for each day. Choose a meal from each category to make a weekly meal plan.<br>
+        If you want a quick solution, simply click the random meal plan generator to generate a weeks worth of instant pot meals. If there is anything that you don't want to eat in the meal plan, either re-generate a new random plan, or change out individual meals for something different.
+        <br>Freeze any leftovers to eat on the weekend or for easy grab-and-go lunches.<br>Generate a grocery list of the ingredients you will need.</p>
+      </div>
 
       <div id="recipeMenu"></div>
-      <div id="recipe"></div>
+      <div id="recipe" class="hide"></div>
       <div id="shoppingList">
-        <div id="slPlan"></div>
+        <div id="slPlan" class="hide"></div>
         <div id="slList"></div>
       </div>
     </main>
+
+
     <footer></footer>
+
     <script src="js/mon.js"></script>
     <script src="js/tues.js"></script>
     <script src="js/weds.js"></script>

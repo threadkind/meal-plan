@@ -1,6 +1,7 @@
 // PAGE ELEMENTS ------------------------------------
 let page = {
 	nav : document.querySelector('nav'),
+	navUl : document.getElementById('navUl'),
 	main : document.querySelector('main'),
 	intro : document.getElementById('intro'),
 	recipeMenu : document.getElementById('recipeMenu'),
@@ -54,45 +55,43 @@ let mp = {
 
 // FUNCTIONS -----------------------------------------
 let f = {
+	resetPage : () => {
+		f.resetRecipeBox()
+		f.resetSl()
+		f.showIntro()
+	},
 	navClick : (e) => {
-		//Check to see if navButton was clicked
-		let nb = ``
-		e.path.forEach((element) => {
-			if(element.id == 'navButtons'){
-				nb = true
-			}
-		})
+		f.hideRecipe()
+		f.resetSl()
+		f.hideIntro()
+		f.hideSlPlan()
 
-		// If navButton div was not clicked then continue with function and set the current day to be able to access recipes from that day
-		if(nb != true) {
-			if(e.target.classList.contains("menuDay") || e.target.classList.contains("mplDay")){
-			v.day = e.target.parentElement.id
-			}
-			else {
-				v.day = e.target.id
-			}
-
-			let day = eval(v.day)
-
-			// Reset and clear the menu
-			page.recipeMenu.innerHTML = ``
-			page.recipe.innerHTML = ``
-			v.r = ``
-			v.rm = ``
-
-			// Display all of the recipes available in the object as picture tiles with the title on
-			Object.keys(day).forEach((key) => {
-				v.rm += `
-					<div id="${day[key].id}" class="recipeTile">
-						<img src="${day[key].photo}" alt="${day[key].title}">
-						<p>${day[key].title}</p>
-					</div>
-				`
-			page.recipeMenu.innerHTML = v.rm
-
-			})
+		if(e.target.classList.contains("menuDay") || e.target.classList.contains("mplDay")){
+		v.day = e.target.parentElement.id
+		}
+		else {
+			v.day = e.target.id
 		}
 
+		let day = eval(v.day)
+
+		// Reset and clear the menu
+		page.recipeMenu.innerHTML = ``
+		page.recipe.innerHTML = ``
+		v.r = ``
+		v.rm = ``
+
+		// Display all of the recipes available in the object as picture tiles with the title on
+		Object.keys(day).forEach((key) => {
+			v.rm += `
+				<div id="${day[key].id}" class="recipeTile">
+					<img src="${day[key].photo}" alt="${day[key].title}">
+					<p>${day[key].title}</p>
+				</div>
+			`
+		page.recipeMenu.innerHTML = v.rm
+
+		})
 	},
 	navButtons : (e) => {
 		if(e.target.localName == 'button'){
@@ -114,8 +113,8 @@ let f = {
 		}
 	},
 	howToUse : () => {
-		console.log('how to use')
-		f.toggleIntro()
+		f.hideRecipe()
+		f.resetPage()
 	},
 	resetMp : () => {
 		Object.keys(mp).forEach((key) => {
@@ -128,10 +127,17 @@ let f = {
 		page.recipeMenu.innerHTML = ``
 		page.recipe.innerHTML = ``
 	},
+	resetSl : () => {
+		page.slPlan.innerHTML = ``
+		page.slList.innerHTML = ``
+	},
 	groceryList : () => {
+		f.hideRecipe()
 		f.checkMp()
 
 		if(v.mpConfirm == true){
+			f.resetSl()
+			f.hideIntro()
 			f.resetRecipeBox()
 			f.generatePlan()
 
@@ -145,6 +151,7 @@ let f = {
 		}
 	},
 	generatePlan : () => {
+		f.showSlPlan()
 		v.slPlan = `<h2>Your meal plan for this week</h2><ul>`
 		Object.keys(mp).forEach((key) => {
 			let d = key.split('')
@@ -179,34 +186,40 @@ let f = {
 		page.slList.innerHTML = v.slList
 	},
 	random : () => {
-		console.log('randomizing')
 		Object.keys(mp).forEach((key) => {
 
 			let x = Object.keys(eval(key))
 			let rand = x[Math.floor(Math.random() * x.length)]
 
-			console.log(eval(key)[rand])
 			mp[key].title = eval(key)[rand].title
 			mp[key].id = eval(key)[rand].id
 		})
 		f.updateMp()
 	},
 	recipeMenuClick : (e) => {
+		f.resetSl()
+		f.showRecipe()
 		let recipe = e.target.parentElement.id
 		v.recipe = recipe
 		let day = eval(v.day)
 
-		v.r = `<h1>${day[recipe].title}</h1><button id="addToPlan">Add to Meal Plan</button>`
+		v.r = `<h2>${day[recipe].title}</h2>`
 
 		if(day[recipe].modFrom != ``){
 
 			v.r += `
-			<p>Modified from <a href="${day[recipe].modFrom}" target="_blank">here</a></p>`
+			<p id="modFrom">Modified from <a href="${day[recipe].modFrom}" target="_blank">here</a></p>`
 		}
 
-		v.r += `<p>Makes ${day[recipe].servings}</p>
-			<img src="${day[recipe].photo}" alt="${day[recipe].title}">
-		 	<h2>INGREDIENTS</h2>
+		v.r += `<div id="serveButton">
+			<p>Makes ${day[recipe].servings}</p>
+			<button id="addToPlan">Add to Meal Plan</button>
+			</div>
+			<figure id="recipePic">
+				<img src="${day[recipe].photo}" alt="${day[recipe].title}">
+			</figure>
+			<div id="recipeIng">
+		 	<h3>INGREDIENTS</h3>
 		 	<ul>
 		`
 
@@ -228,7 +241,9 @@ let f = {
 		v.r += `
 			<br>
 			</ul>
-			<h2>DIRECTIONS</h2>
+			</div>
+			<div id="recipeDirect">
+			<h3>DIRECTIONS</h3>
 			<ul>
 		`
 
@@ -237,8 +252,9 @@ let f = {
 		})
 		v.r += `
 			</ul>
+			</div>
 			<br>
-			<p>Enjoy!</p>
+			<p id="enjoy">Enjoy!</p>
 			`
 
 		page.recipe.innerHTML = v.r
@@ -258,10 +274,25 @@ let f = {
 		page.mplFri.innerHTML = mp.fri.title
 	},
 	updateMainMargin : () => {
-		page.main.style.marginTop = `${page.nav.offsetHeight + 10}px`
+		page.main.style.marginTop = `${page.nav.offsetHeight + 30}px`
 	},
-	toggleIntro : () => {
-		page.intro.classList.toggle('hide')
+	hideIntro : () => {
+		page.intro.style.display = `none`
+	},
+	showIntro : () => {
+		page.intro.style.display = `flex`
+	},
+	hideRecipe : () => {
+		page.recipe.style.display = `none`
+	},
+	showRecipe : () => {
+		page.recipe.style.display = `block`
+	},
+	hideSlPlan : () => {
+		page.slPlan.style.display = `none`
+	},
+	showSlPlan : () => {
+		page.slPlan.style.display = `block`
 	},
 	checkMp : () => {
 		let recipeNum = 0
@@ -308,7 +339,7 @@ let f = {
 let handlers = {
 	menuHeight : window.addEventListener("load", f.updateMainMargin),
 	menuHeightResize : window.addEventListener("resize", f.updateMainMargin),
-	nav : page.nav.addEventListener('click', f.navClick),
+	navUl : page.navUl.addEventListener('click', f.navClick),
 	navButtons : page.navButtons.addEventListener('click', f.navButtons),
 	recipeMenu : page.recipeMenu.addEventListener('click', f.recipeMenuClick),
 	recipe : page.recipe.addEventListener('click', f.recipeClick)

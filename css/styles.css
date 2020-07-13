@@ -7,8 +7,8 @@
 	padding: 0;
 }
 
-.hide {
-	display: none;
+button {
+	padding: 1%;
 }
 
 nav {
@@ -17,14 +17,24 @@ nav {
 	z-index: 10;
 }
 
-nav ul {
+nav h1 {
+	text-align: center;
+	background: rgba(256,256,256,1);
+}
+
+nav button {
+	cursor: pointer;
+}
+
+#navUl {
+	cursor: pointer;
 	display: flex;
 	justify-content: space-around;
 	color: rgba(256,256,256,1);
 	box-shadow: 2px 2px 2px grey;
 }
 
-nav ul li {
+#navUl li {
 	font-family: 'Baloo Da 2', cursive;
 	font-size: 100%;
 	width: 20%;
@@ -38,15 +48,11 @@ nav ul li {
 	padding: 1%;
 }
 
-/*nav ul>li:nth-child(odd){
-	background: rgba(50,50,50,1);
-}*/
-
-nav ul li span {
+#navUl li span {
 	width: 100%;
 }
 
-nav ul li hr {
+#navUl li hr {
 	width: 80%;
 	border-top: 1px solid rgba(256,256,256,1);
 	height: 0;
@@ -61,10 +67,25 @@ nav ul li hr {
 #intro {
 	width: 80%;
 	padding: 2% 10%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#intro img {
+	width: 50%;
+	margin: 1% auto;
+}
+
+#recipeMenu {
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
 
 .recipeTile {
-	width: 25%;
+	width: 30%;
 	position: relative;
 }
 
@@ -79,4 +100,90 @@ nav ul li hr {
 	width: 100%;
 	padding: 2% 0;
 	text-align: center;
+}
+
+#recipe {
+	width: 80%;
+	margin: 2% auto;
+	border: 1px solid black;
+	padding: 2%;
+}
+
+#recipe h2 {
+	text-align: center;
+}
+
+#modFrom {
+	width: 80%;
+	margin: auto;
+}
+
+#serveButton {
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+#recipePic {
+	display: flex;
+	justify-content: center;
+	margin: 1%;
+}
+
+#recipe img {
+	width: 80%;
+}
+
+#recipeIng {
+	width: 80%;
+	margin: 0 auto;
+}
+
+#recipeDirect {
+	width: 80%;
+	margin: 0 auto;
+}
+
+#enjoy {
+	width: 100%;
+	text-align: center;
+}
+
+#shoppingList {
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+#slPlan {
+	width: 50%;
+	border: 1px solid rgb(0,0,0,1);
+	text-align: center;
+}
+
+#slList {
+	width: 90%;
+	margin: 2%;
+}
+
+#slList h2 {
+	text-align: center;
+	margin: 1%;
+}
+
+#slList ul {
+	columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
+
+#slList ul li {
+	list-style: circle;
+}
+
+.hide {
+	display: none;
 }
