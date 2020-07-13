@@ -145,6 +145,11 @@ nav button {
 	margin: 0 auto;
 }
 
+.chosen {
+	background: white;
+	color: black;
+}
+
 #enjoy {
 	width: 100%;
 	text-align: center;

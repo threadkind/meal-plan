@@ -121,6 +121,8 @@ let f = {
 			mp[key].title = 'Choose a Recipe'
 			mp[key].id = ''
 		})
+
+		console.log(page.navUl.children)
 		f.updateMp()
 	},
 	resetRecipeBox : () => {
@@ -184,6 +186,7 @@ let f = {
 		})
 
 		page.slList.innerHTML = v.slList
+		console.log(ingredients)
 	},
 	random : () => {
 		Object.keys(mp).forEach((key) => {
@@ -230,7 +233,7 @@ let f = {
 		v.r += `<br>`
 
 		if(day[recipe].toServe != ``){
-			v.r += `To serve: `
+			v.r += `(Optional) To serve: `
 
 			day[recipe].toServe.forEach((i) => {
 				v.r += `${i}, `
@@ -264,6 +267,13 @@ let f = {
 			mp[v.day].title = eval(v.day)[v.recipe].title
 			mp[v.day].id = v.recipe
 			f.updateMp()
+
+			let d = v.day.split('')
+			d[0] = d[0].toUpperCase()
+			let dUp = d.join('')
+			let chosen = `mpl${dUp}`
+
+			page[chosen].classList.add('chosen')
 		}
 	},
 	updateMp : () => {
