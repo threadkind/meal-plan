@@ -13,7 +13,7 @@
 let weds = {
 	sloppyJoes : {
 		id : `sloppyJoes`,
-		title : 'Sloppy Joes',
+		title : 'Instant Pot Sloppy Joes',
 		modFrom : ``,
 		servings : 'about 4 servings',
 		photo : 'https://lh3.googleusercontent.com/-DpgPSSIn9oI/VvdCQWVpgWI/AAAAAAAAA5c/ncTc1KHC9y0/s640/blogger-image-1139432374.jpg',
@@ -24,7 +24,7 @@ let weds = {
 	},
 	sausageRiceBeans : {
 		id : `sausageRiceBeans`,
-		title : `Sausage, Rice + Beans`,
+		title : `Instant Pot Sausage, Rice + Beans`,
 		modFrom : ``,
 		servings : `about 4 servings`,
 		photo : `http://1.bp.blogspot.com/-WY32kVlUbgg/Vf17dLSGf-I/AAAAAAAAAeo/yjvD2-1GImQ/s1600/Sausage-Rice-and-Beans.jpg`,

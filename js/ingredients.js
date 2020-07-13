@@ -218,10 +218,10 @@ let ingredients = {
 	},
 	frozensweetcorn : {
 		name : `frozen sweetcorn`,
-		mmt : `c : ``,up(s)`,
-		amt : 0,``,
+		mmt : `cup(s)`,
+		amt : 0,
 		cat : `frozen`
-	},``
+	},
 	frozenpeas : {
 		name : `frozen peas`,
 		mmt : `cup(s)`,

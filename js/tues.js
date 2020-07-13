@@ -14,7 +14,7 @@ let tues = {
 
 	southwestSoup : {
 		id : `southwestSoup`,
-		title : `Creamy Southwest Chicken Soup`,
+		title : `Instant Pot Creamy Southwest Chicken Soup`,
 		modFrom : `https://tasteandsee.com/southwest-chicken-soup/`,
 		servings : `8 servings`,
 		photo : `https://tasteandsee.com/wp-content/uploads/2019/11/Slow-Cooker-Creamy-Southwest-Chicken-Soup-OT-CU-partial-bowl-.jpg`,

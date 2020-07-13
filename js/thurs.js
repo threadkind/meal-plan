@@ -13,7 +13,7 @@
 let thurs = {
 	chickpeaKorma : {
 		id : `chickpeaKorma`,
-		title : `Chickpea Korma`,
+		title : `Instant Pot Chickpea Korma`,
 		modFrom : ``,
 		servings : `4 servings`,
 		photo : `https://via.placeholder.com/150`,
