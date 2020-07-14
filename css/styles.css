@@ -163,7 +163,7 @@ nav button {
 
 #shoppingList {
 	width: 80%;
-	margin: 0 auto;
+	margin: 5% auto 0;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;

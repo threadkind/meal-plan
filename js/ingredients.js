@@ -32,7 +32,7 @@ let ingredients = {
 	},
 	brownsugar : {
 		name : `brown sugar`,
-		mmt : `tbsp`,
+		mmt : `cup(s)`,
 		amt : 0,
 		cat : `baking`
 	},
@@ -54,6 +54,12 @@ let ingredients = {
 		amt : 0,
 		cat : `cannedGoods`
 	},
+	celery : {
+		name : `celery`,
+		mmt : `stalk`,
+		amt : 0,
+		cat : `fruitsVeg`
+	},
 	chickenstock : {
 		name : `chicken stock`,
 		mmt : `cup(s)`,
@@ -71,6 +77,12 @@ let ingredients = {
 		mmt : `tsp`,
 		amt : 0,
 		cat : `spices`
+	},
+	cidervinegar : {
+		name : `cider vinegar`,
+		mmt : `cup(s)`,
+		amt : 0,
+		cat : `saucesOils`
 	},
 	coconutmilk : {
 		name : `coconut milk`,
@@ -125,6 +137,12 @@ let ingredients = {
 		mmt : `tsp`,
 		amt : 0,
 		cat : `spices`
+	},
+	elbowmacaroni : {
+		name : `elbow macaroni`,
+		mmt : `pound(s)`,
+		amt : 0,
+		cat : `grains`
 	},
 	freshcilantroleaves : {
 		name : `fresh cilantro leaves`,
@@ -210,6 +228,12 @@ let ingredients = {
 		amt : 0,
 		cat : `saucesOils`
 	},
+	lightbrownsugar : {
+		name : `light brown sugar`,
+		mmt : `tbsp`,
+		amt : 0,
+		cat : `baking`
+	},
 	lightredkidneybeans : {
 		name : `light red kidney beans`,
 		mmt : `16oz-can(s)`,
@@ -227,6 +251,12 @@ let ingredients = {
 		mmt : `cup(s)`,
 		amt : 0,
 		cat : `condiments`
+	},
+	milk : {
+		name : `milk`,
+		mmt : `cup(s)`,
+		amt : 0,
+		cat : `dairy`
 	},
 	mincedgarlic : {
 		name : `minced garlic`,
@@ -263,6 +293,24 @@ let ingredients = {
 		mmt : `tsp`,
 		amt : 0,
 		cat : `spices`
+	},
+	pineapplechunks : {
+		name : `pineapple chunks`,
+		mmt : `20oz-can(s)`,
+		amt : 0,
+		cat : `cannedGoods`
+	},
+	precookedfrozenmeatballs : {
+		name : `precooked frozen meatballs`,
+		mmt : `32oz-package(s)`,
+		amt : 0,
+		cat : `meatSeafood`
+	},
+	redbellpepper : {
+		name : `red bell pepper`,
+		mmt : `medium`,
+		amt : 0,
+		cat : `fruitsVeg`
 	},
 	redonion : {
 		name : `red onion`,
@@ -306,12 +354,24 @@ let ingredients = {
 		amt : 0,
 		cat : `dairy`
 	},
+	soysauce : {
+		name : `soy sauce`,
+		mmt : `cup(s)`,
+		amt : 0,
+		cat : `saucesOils`
+	},
 	sweetchilisauce : {
 		name : `sweet chili sauce`,
 		mmt : `tbsp`,
 		amt : 0,
 		cat : 'saucesOils'
 	},
+	whitevinegar : {
+		name : `white vinegar`,
+		mmt : `cup(s)`,
+		amt : 0,
+		cat : `saucesOils`
+	}
 }//END INGREDIENTS
 console.log(ingredients)
 
