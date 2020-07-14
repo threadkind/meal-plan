@@ -6,6 +6,12 @@
 	// },
 
 let ingredients = {
+	baggedsaladmix : {
+		name : `bagged salad mix`,
+		mmt : `cup(s)`,
+		amt : 0,
+		cat : `fruitsVeg`
+	},
 	balsamicvinegar : {
 		name : `balsamic vinegar`,
 		mmt : `tbsp`,
@@ -119,6 +125,18 @@ let ingredients = {
 		mmt : `tsp`,
 		amt : 0,
 		cat : `spices`
+	},
+	freshcilantroleaves : {
+		name : `fresh cilantro leaves`,
+		mmt : `cup(s)`,
+		amt : 0,
+		cat : `fruitsVeg`
+	},
+	frozenchickenbreasts : {
+		name : `frozen chicken breasts`,
+		mmt : `pound(s)`,
+		amt : 0,
+		cat : `meatSeafood`
 	},
 	frozenbroccoli : {
 		name : `frozen broccoli`,
@@ -246,8 +264,20 @@ let ingredients = {
 		amt : 0,
 		cat : `spices`
 	},
+	redonion : {
+		name : `red onion`,
+		mmt : `medium`,
+		amt : 0,
+		cat : `fruitsVeg`
+	},
 	redwine : {
 		name : `red wine`,
+		mmt : `cup(s)`,
+		amt : 0,
+		cat : `saucesOils`,
+	},
+	salsa : {
+		name : `salsa`,
 		mmt : `cup(s)`,
 		amt : 0,
 		cat : `saucesOils`,

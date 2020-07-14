@@ -85,7 +85,7 @@ let f = {
 		Object.keys(day).forEach((key) => {
 			v.rm += `
 				<div id="${day[key].id}" class="recipeTile">
-					<img src="${day[key].photo}" alt="${day[key].title}">
+					<img src="images/recipe-pics/${day[key].photo}" alt="${day[key].title}">
 					<p>${day[key].title}</p>
 				</div>
 			`
@@ -154,7 +154,7 @@ let f = {
 	},
 	generatePlan : () => {
 		f.showSlPlan()
-		v.slPlan = `<h2>Your meal plan for this week</h2><ul>`
+		v.slPlan = `<h2>Your meal plan for this week</h2><ul id="weeklyMP">`
 		Object.keys(mp).forEach((key) => {
 			let d = key.split('')
 			d[0] = d[0].toUpperCase()
@@ -171,16 +171,17 @@ let f = {
 				let r = eval(key)
 				v.slPlan += `<li>${dUp}day: ${r[mp[key].id].title}`
 			}
-			v.slPlan += `</ul>`
+
 		})
+		v.slPlan += `</ul>`
 		page.slPlan.innerHTML = v.slPlan
 	},
 	generateShoppingList : () => {
 		v.slList = `<h2>Your grocery list for this week</h2>
 		<ul>`
 		Object.keys(ingredients).forEach((key) => {
-
 			if(ingredients[key].amt > 0){
+
 				categories[ingredients[key].cat].items.push(`${ingredients[key].amt} ${ingredients[key].mmt} ${ingredients[key].name}`)
 			}
 
@@ -241,7 +242,7 @@ let f = {
 				<button id="addToPlan">Add to Meal Plan</button>
 				</div>
 				<figure id="recipePic">
-					<img src="${day[recipe].photo}" alt="${day[recipe].title}">
+					<img src="images/recipe-pics/${day[recipe].photo}" alt="${day[recipe].title}">
 				</figure>
 				<div id="recipeIng">
 			 	<h3>INGREDIENTS</h3>
