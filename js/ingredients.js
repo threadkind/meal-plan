@@ -300,6 +300,12 @@ let ingredients = {
 		amt : 0,
 		cat : `spices`
 	},
+	paprika : {
+		name : `paprika`,
+		mmt : `tsp`,
+		amt : 0,
+		cat : `spices`
+	},
 	pepper : {
 		name : `pepper`,
 		mmt : `tsp`,
@@ -335,6 +341,12 @@ let ingredients = {
 		mmt : `cup(s)`,
 		amt : 0,
 		cat : `saucesOils`,
+	},
+	salmonfilets : {
+		name : `salmon filets`,
+		mmt : `medium`,
+		amt : 0,
+		cat : `meatSeafood`
 	},
 	salsa : {
 		name : `salsa`,
@@ -372,6 +384,12 @@ let ingredients = {
 		amt : 0,
 		cat : `saucesOils`
 	},
+	srirachasauce : {
+		name : `sriracha sauce`,
+		mmt : `tbsp`,
+		amt : 0,
+		cat : `saucesOils`
+	},
 	sweetchilisauce : {
 		name : `sweet chili sauce`,
 		mmt : `tbsp`,
@@ -379,13 +397,13 @@ let ingredients = {
 		cat : 'saucesOils'
 	},
 	sweetpotato : {
-		name : `sweet potato`
+		name : `sweet potato`,
 		mmt : `large`,
 		amt : 0,
 		cat : `fruitsVeg`
 	},
 	vegetablestock : {
-		name : `vegetable stock`
+		name : `vegetable stock`,
 		mmt : `large`,
 		amt : 0,
 		cat : `fruitsVeg`
