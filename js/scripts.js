@@ -116,11 +116,26 @@ let f = {
 		f.hideRecipe()
 		f.resetPage()
 	},
+	resetMenuBackground : () => {
+		document.querySelectorAll(`.mplDay`).forEach((m) => {
+			if(m.classList.contains('chosen')){
+				m.classList.remove('chosen')
+			}
+		 })
+	},
+	addMenuBackgroundToAll : () => {
+		document.querySelectorAll(`.mplDay`).forEach((m) => {
+			if(m.classList.contains('chosen') != true){
+				m.classList.add('chosen')
+			}
+		 })
+	},
 	resetMp : () => {
 		Object.keys(mp).forEach((key) => {
 			mp[key].title = 'Choose a Recipe'
 			mp[key].id = ''
 		})
+		f.resetMenuBackground()
 		f.updateMp()
 	},
 	resetRecipeBox : () => {
@@ -220,6 +235,7 @@ let f = {
 			mp[key].id = eval(key)[rand].id
 		})
 		f.updateMp()
+		f.addMenuBackgroundToAll()
 	},
 	recipeMenuClick : (e) => {
 		if(e.target.localName == 'img' || e.target.localName == 'p'){
@@ -308,6 +324,7 @@ let f = {
 		page.mplFri.innerHTML = mp.fri.title
 	},
 	updateMainMargin : () => {
+		console.log('updating nav size....')
 		page.main.style.marginTop = `${page.nav.offsetHeight + 30}px`
 	},
 	hideIntro : () => {
@@ -367,7 +384,7 @@ let f = {
 // EVENT HANDLERS -------------------------------------
 let handlers = {
 	menuHeight : window.addEventListener("load", f.updateMainMargin),
-	menuHeightResize : window.addEventListener("resize", f.updateMainMargin),
+	menuHeightResize : page.navUl.addEventListener("resize", f.updateMainMargin),
 	navUl : page.navUl.addEventListener('click', f.navClick),
 	navButtons : page.navButtons.addEventListener('click', f.navButtons),
 	recipeMenu : page.recipeMenu.addEventListener('click', f.recipeMenuClick),

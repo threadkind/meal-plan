@@ -90,6 +90,12 @@ let ingredients = {
 		amt : 0,
 		cat : `dairy`
 	},
+	coconutoil : {
+		name : `coconut oil`,
+		mmt : `tbsp`,
+		amt : 0,
+		cat : `saucesOils`
+	},
 	codfillets : {
 		name : `cod fillets`,
 		mmt : `medium`,
@@ -264,6 +270,12 @@ let ingredients = {
 		amt : 0,
 		cat : `spices`
 	},
+	mincedginger : {
+		name : `minced ginger`,
+		mmt : `tbsp`,
+		amt : 0,
+		cat : `spices`
+	},
 	nutmeg : {
 		name : `nutmeg`,
 		mmt : `tsp`,
@@ -365,6 +377,18 @@ let ingredients = {
 		mmt : `tbsp`,
 		amt : 0,
 		cat : 'saucesOils'
+	},
+	sweetpotato : {
+		name : `sweet potato`
+		mmt : `large`,
+		amt : 0,
+		cat : `fruitsVeg`
+	},
+	vegetablestock : {
+		name : `vegetable stock`
+		mmt : `large`,
+		amt : 0,
+		cat : `fruitsVeg`
 	},
 	whitevinegar : {
 		name : `white vinegar`,
