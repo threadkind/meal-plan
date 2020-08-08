@@ -28,7 +28,7 @@ chickenBahnMi : {
 	modFrom : ``,
 	servings : `6 servings`,
 	photo : `instant-pot.jpg`,
-	ingredients : ['Yummy bahn mi ingredients'],
+	ingredients : ['Yummy bahn mi ingredients-mmm'],
 	toServe : [],
 	directions : ['Make a sandwich!'],
 	tags : ['chicken', 'vietnamese']
