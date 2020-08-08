@@ -31,6 +31,6 @@ chickenBahnMi : {
 	ingredients : ['Yummy bahn mi ingredients'],
 	toServe : [],
 	directions : ['Make a sandwich!'],
-	tags : ['chicken', 'vietnamese]
+	tags : ['chicken', 'vietnamese']
 	}
 }
