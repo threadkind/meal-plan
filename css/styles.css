@@ -137,6 +137,7 @@ nav button {
 }
 
 #recipePic {
+	width: 100%;
 	display: flex;
 	justify-content: center;
 	margin: 1%;
@@ -144,6 +145,7 @@ nav button {
 
 #recipe img {
 	width: 80%;
+	height: auto;
 }
 
 #recipeIng {
