@@ -71,9 +71,13 @@ nav button {
 	flex-wrap: wrap;
 }
 
-#intro img {
+#introImg {
 	width: 50%;
 	margin: 1% auto;
+}
+
+#introImg img {
+	width: 100%;
 }
 
 #intro h2 {
@@ -97,6 +101,7 @@ nav button {
 
 .recipeTile img {
 	width: 100%;
+	height: auto;
 }
 
 .recipeTile p {
@@ -185,16 +190,6 @@ nav button {
 	margin: 1%;
 }
 
-/*#slList ul {
-	columns: 2;
-  -webkit-columns: 2;
-  -moz-columns: 2;
-}*/
-
-/*#slList ul li {
-	list-style: circle;
-}
-*/
 .listCat {
 	border: solid black 1px;
 	padding: 1%;
@@ -209,3 +204,29 @@ nav button {
 	display: none;
 }
 
+@media only screen and (max-width: 600px) {
+  #navUl {
+  	flex-wrap: wrap;
+  }
+
+  #navUl li {
+   	width: 100vw;
+  }
+
+  .mobileMenu {
+  	width: 100%;
+  	height: 30px;
+  	margin: 5px 0;
+  	text-align: center;
+  	background: goldenrod;
+  	color: #fff;
+  }
+
+  .mobileHide {
+	display: none;
+  }
+
+  .recipeTile {
+  	width: 100%;
+  }
+}
