@@ -204,6 +204,10 @@ nav button {
 	display: none;
 }
 
+.mobileShow {
+	display: none;
+}
+
 @media only screen and (max-width: 600px) {
   #navUl {
   	flex-wrap: wrap;
@@ -213,7 +217,7 @@ nav button {
    	width: 100vw;
   }
 
-  .mobileMenu {
+  #mobileMenu {
   	width: 100%;
   	height: 30px;
   	margin: 5px 0;
@@ -224,6 +228,10 @@ nav button {
 
   .mobileHide {
 	display: none;
+  }
+
+  .mobileShow {
+  	display: block;
   }
 
   .recipeTile {

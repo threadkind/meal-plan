@@ -16,7 +16,12 @@ let page = {
 	resetMp :document.getElementById('resetMp'),
 	groceryList : document.getElementById('groceryList'),
 	slPlan : document.getElementById('slPlan'),
-	slList : document.getElementById('slList')
+	slList : document.getElementById('slList'),
+	mobileMenu : document.getElementById('mobileMenu'),
+	navHr : document.querySelectorAll('#navUl hr'),
+	mplDay : document.querySelectorAll('.mplDay'),
+	mobileMenuShow : document.getElementById('mobileMenuShow'),
+	mobileMenuHide : document.getElementById('mobileMenuHide'),
 }
 // VARIABLES ---------------------------------------
 let v = {
@@ -378,9 +383,22 @@ let f = {
 			categories.extras.items.push(extra)
 		})
 	},
+	toggleMobileMenu : () => {
+		page.mobileMenuHide.classList.toggle('mobileHide')
+		page.mobileMenuShow.classList.toggle('mobileHide')
+		page.navButtons.classList.toggle('mobileHide')
+		page.navHr.forEach((hr) => {
+			hr.classList.toggle('mobileHide')
+		})
+		page.mplDay.forEach((mplDay) => {
+			mplDay.classList.toggle('mobileHide')
+		})
+
+
+	}
 }
 
-
+console.log(page.mplDay)
 // EVENT HANDLERS -------------------------------------
 let handlers = {
 	menuHeight : window.addEventListener("load", f.updateMainMargin),
@@ -388,7 +406,8 @@ let handlers = {
 	navUl : page.navUl.addEventListener('click', f.navClick),
 	navButtons : page.navButtons.addEventListener('click', f.navButtons),
 	recipeMenu : page.recipeMenu.addEventListener('click', f.recipeMenuClick),
-	recipe : page.recipe.addEventListener('click', f.recipeClick)
+	recipe : page.recipe.addEventListener('click', f.recipeClick),
+	mobileMenuClick : page.mobileMenu.addEventListener('click', f.toggleMobileMenu)
 }
 
 
