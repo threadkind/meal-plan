@@ -402,6 +402,18 @@ let ingredients = {
 		amt : 0,
 		cat : `fruitsVeg`
 	},
+	tacoseasoning : {
+		name : `taco seasoning`,
+		mmt : `tbsp`,
+		amt : 0,
+		cat : `spices`
+	},
+	tortillas : {
+		name : 'tortillas',
+		mmt : `8-inch`,
+		amt : 0,
+		cat : 'grains'
+	},
 	vegetablestock : {
 		name : `vegetable stock`,
 		mmt : `large`,
