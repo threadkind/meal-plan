@@ -305,6 +305,11 @@ let f = {
 				`
 
 			page.recipe.innerHTML = v.r
+
+			//scroll to recipe
+			let recipeLocation = page.recipeMenu.offsetHeight
+			window.scrollTo(0, recipeLocation)
+
 		}
 	},
 	recipeClick : (e) => {

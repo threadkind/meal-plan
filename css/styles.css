@@ -124,6 +124,11 @@ nav button {
 	text-align: center;
 }
 
+#addToPlan {
+	background: #000;
+	color: #fff;
+}
+
 #modFrom {
 	width: 80%;
 	margin: auto;
@@ -217,6 +222,15 @@ nav button {
 
   #navUl li {
    	width: 100vw;
+  }
+
+  .chosen {
+	background: goldenrod;
+	color: white;
+}
+
+  #slPlan {
+  	width: 90%;
   }
 
   #mobileMenu {
