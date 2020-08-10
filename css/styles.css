@@ -140,12 +140,12 @@ nav button {
 	width: 100%;
 	display: flex;
 	justify-content: center;
+	align-items: flex-start;
 	margin: 1%;
 }
 
 #recipe img {
 	width: 80%;
-	height: auto;
 }
 
 #recipeIng {
