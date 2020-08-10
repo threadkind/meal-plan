@@ -24,6 +24,12 @@ let ingredients = {
 		amt : 0,
 		cat : `meatSeafood`
 	},
+	bistogravygranules : {
+		name : `bisto gravy granules`,
+		mmt : `tsp`,
+		amt : 0,
+		cat : `spices`
+	},
 	blackbeans : {
 		name : `black beans`,
 		mmt : `15oz-can(s)`,
@@ -170,6 +176,12 @@ let ingredients = {
 	},
 	frozencarrots : {
 		name : `frozen carrots`,
+		mmt : `cup(s)`,
+		amt : 0,
+		cat : `frozen`
+	},
+	frozenmixedvegetables : {
+		name : `frozen mixed vegetables`,
 		mmt : `cup(s)`,
 		amt : 0,
 		cat : `frozen`
@@ -407,6 +419,12 @@ let ingredients = {
 		mmt : `tbsp`,
 		amt : 0,
 		cat : `spices`
+	},
+	tatertots : {
+		name : `tater tots`,
+		mmt : `32oz-package`,
+		amt : 0,
+		cat : `frozen`
 	},
 	tortillas : {
 		name : 'tortillas',
