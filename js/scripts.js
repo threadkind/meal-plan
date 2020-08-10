@@ -371,6 +371,7 @@ let f = {
 		d[mp[day].id].ingredients.forEach((i) => {
 			let food = i.split(',')[0].split(' ')
 		 	if(Number.isNaN(Number(food[0])) == false){
+		 		console.log(i)
 				let ingrdt = {}
 				ingrdt.amt = food[0]
 				food.shift()
@@ -398,7 +399,6 @@ let f = {
 	}
 }
 
-console.log(page.mplDay)
 // EVENT HANDLERS -------------------------------------
 let handlers = {
 	menuHeight : window.addEventListener("load", f.updateMainMargin),

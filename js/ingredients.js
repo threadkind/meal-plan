@@ -36,6 +36,12 @@ let ingredients = {
 		amt : 0,
 		cat : `cannedGoods`
 	},
+	bolillorolls : {
+		name : `bolillo rolls`,
+		mmt : `whole`,
+		amt : 0,
+		cat : `grains`
+	},
 	brownsugar : {
 		name : `brown sugar`,
 		mmt : `cup(s)`,
@@ -126,8 +132,20 @@ let ingredients = {
 		amt : 0,
 		cat : `dairy`
 	},
+	cucumber : {
+		name : `cucumber`,
+		mmt : `whole`,
+		amt : 0,
+		cat : `fruitsVeg`
+	},
 	cumin : {
 		name : `cumin`,
+		mmt : `tsp`,
+		amt : 0,
+		cat : `spices`
+	},
+	currypowder : {
+		name : `curry powder`,
 		mmt : `tsp`,
 		amt : 0,
 		cat : `spices`
@@ -210,6 +228,12 @@ let ingredients = {
 		amt : 0,
 		cat : `spices`
 	},
+	granulatedsugar : {
+		name : `granulated sugar`,
+		mmt : `cup(s)`,
+		amt : 0,
+		cat : `baking`
+	},
 	groundbeef : {
 		name : `ground beef`,
 		mmt : `pound(s)`,
@@ -227,6 +251,12 @@ let ingredients = {
 		mmt : `cup(s)`,
 		amt : 0,
 		cat : `dairy`
+	},
+	honey : {
+		name : `honey`,
+		mmt : `tbsp`,
+		amt : 0,
+		cat : `saucesOils`
 	},
 	jasminerice : {
 		name : `jasmine rice`,
@@ -354,6 +384,12 @@ let ingredients = {
 		amt : 0,
 		cat : `saucesOils`,
 	},
+	ricewinevinegar : {
+		name : `rice wine vinegar`,
+		mmt : `tbsp`,
+		amt : 0,
+		cat : `saucesOils`
+	},
 	salmonfilets : {
 		name : `salmon filets`,
 		mmt : `medium`,
@@ -377,6 +413,12 @@ let ingredients = {
 		mmt : `tbsp`,
 		amt : 0,
 		cat : `saucesOils`
+	},
+	shreddedcarrots : {
+		name : `shredded carrots`,
+		mmt : `10oz-package`,
+		amt : 0,
+		cat : `fruitsVeg`
 	},
 	shreddedsharpcheddar : {
 		name : `shredded sharp cheddar`,
